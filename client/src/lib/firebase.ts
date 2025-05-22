@@ -4,7 +4,7 @@ import type { InsertApplication } from "@shared/schema";
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "GOOGLE_API_KEY",
+  apiKey: "AIzaSyB0dzAkhl_T3dJP_yPYLoE9fsGzVDJnmEY",
   authDomain: "applications-2025-26.firebaseapp.com",
   projectId: "applications-2025-26",
   storageBucket: "applications-2025-26.firebasestorage.app",
