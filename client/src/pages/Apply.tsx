@@ -154,7 +154,10 @@ const Apply = () => {
                   name="college"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>College</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <Building2 size={16} className="text-primary" />
+                        College
+                      </FormLabel>
                       <FormControl>
                         <Input placeholder="Enter your college name" {...field} />
                       </FormControl>
@@ -173,7 +176,10 @@ const Apply = () => {
                   name="year"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Year</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <GraduationCap size={16} className="text-primary" />
+                        Year
+                      </FormLabel>
                       <Select
                         onValueChange={field.onChange}
                         defaultValue={field.value}
@@ -198,7 +204,10 @@ const Apply = () => {
                 className="form-animation"
                 style={{ "--animation-order": 4 } as React.CSSProperties}
               >
-                <label className="block text-neutral-500 text-sm mb-3">Role Preferences</label>
+                <label className="flex items-center gap-2 text-neutral-500 text-sm mb-3">
+                  <ClipboardList size={16} className="text-primary" />
+                  Role Preferences
+                </label>
 
                 <div className="space-y-4">
                   <FormField
@@ -296,7 +305,10 @@ const Apply = () => {
                   name="resumeLink"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Resume Drive Link</FormLabel>
+                      <FormLabel className="flex items-center gap-2">
+                        <FileText size={16} className="text-primary" />
+                        Resume Drive Link
+                      </FormLabel>
                       <FormControl>
                         <Input
                           placeholder="https://drive.google.com/..."
