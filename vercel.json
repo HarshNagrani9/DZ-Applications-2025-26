@@ -3,18 +3,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist/public",
   "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api"
-    }
-  ],
-  "functions": {
-    "api/index.js": {
-      "memory": 1024,
-      "maxDuration": 10
-    }
-  },
   "env": {
     "NODE_ENV": "production"
   }
