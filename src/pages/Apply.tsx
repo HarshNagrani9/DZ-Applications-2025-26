@@ -479,12 +479,12 @@ import { Button } from "@/components/ui/button";
 import LoadingSpinner from "@/components/LoadingSpinner";
 
 const roleOptions = [
-  { value: "data_analysis", label: "Data Analysis Team" },
-  { value: "machine_learning", label: "Machine Learning Research" },
-  { value: "visualization", label: "Data Visualization" },
-  { value: "projects", label: "Project Management" },
-  { value: "events", label: "Events & Workshop Coordination" },
-  { value: "content", label: "Content & Social Media" },
+  { value: "Council Head", label: "Council Head" },
+  { value: "Tech Team", label: "Tech Team" },
+  { value: "PR Team", label: "PR Team" },
+  { value: "Marketing Team", label: "Marketing Team" },
+  { value: "Operations Team", label: "Operations Team" },
+  { value: "Creatives Team", label: "Creatives Team" },
 ];
 
 const Apply = () => {
@@ -799,6 +799,9 @@ const Apply = () => {
                           <SelectItem value="TY">TY - Third Year</SelectItem>
                         </SelectContent>
                       </Select>
+                      <p className="text-xs text-amber-600 mt-2 font-medium">
+                        Note: Only TY students are eligible to apply for the Council Head position
+                      </p>
                       <FormMessage />
                     </FormItem>
                   )}
