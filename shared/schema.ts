@@ -5,6 +5,7 @@ import { z } from "zod";
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
   username: text("username").notNull().unique(),
+  email: text("email").notNull().unique(),
   password: text("password").notNull(),
 });
 
@@ -12,6 +13,7 @@ export const users = pgTable("users", {
 export const applications = pgTable("applications", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
+  email: text("email").notNull().unique(),
   college: text("college").notNull(),
   year: text("year").notNull(),
   preference1: text("preference1").notNull(),
@@ -19,16 +21,24 @@ export const applications = pgTable("applications", {
   preference3: text("preference3").notNull(),
   resumeLink: text("resumeLink").notNull(),
   createdAt: text("created_at").notNull(),
+  formSubmitted: boolean("form_submitted").notNull().default(false),
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
+  email: true,
   password: true,
+}).extend({
+  email: z.string().email().refine(
+    (email) => email.endsWith("@somaiya.edu"),
+    "Email must be a valid Somaiya email address"
+  ),
 });
 
 export const insertApplicationSchema = createInsertSchema(applications).omit({
   id: true,
   createdAt: true,
+  formSubmitted: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
@@ -39,6 +49,10 @@ export type Application = typeof applications.$inferSelect;
 
 // Extended schema with validations for the form
 export const applicationFormSchema = insertApplicationSchema.extend({
+  email: z.string().email().refine(
+    (email) => email.endsWith("@somaiya.edu"),
+    "Email must be a valid Somaiya email address"
+  ),
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
   college: z.string().min(2, { message: "College name is required" }),
   year: z.enum(["SY", "TY"], { 

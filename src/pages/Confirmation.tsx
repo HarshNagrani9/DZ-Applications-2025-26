@@ -2,8 +2,21 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { CheckIcon, ArrowRight, Clock, Users, Award } from "lucide-react";
+import { useEffect } from "react";
+import { useLocation } from "wouter";
+import { getAuth } from "firebase/auth";
 
 const Confirmation = () => {
+  const [_, navigate] = useLocation();
+  const auth = getAuth();
+
+  useEffect(() => {
+    // If user is somehow still authenticated, sign them out
+    if (auth.currentUser) {
+      auth.signOut();
+    }
+  }, [auth]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
