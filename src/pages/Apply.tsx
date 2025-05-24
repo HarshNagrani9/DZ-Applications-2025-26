@@ -800,7 +800,7 @@ const Apply = () => {
                         </SelectContent>
                       </Select>
                       <p className="text-xs text-amber-600 mt-2 font-medium">
-                        Note: Only TY students are eligible to apply for the Council Head position
+                        Note: Only TY students are eligible to apply for the Heads position
                       </p>
                       <FormMessage />
                     </FormItem>
